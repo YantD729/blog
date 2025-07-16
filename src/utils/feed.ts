@@ -125,8 +125,8 @@ export async function generateFeed({ lang }: { lang?: string } = {}) {
     generator: 'Astro-Theme-Retypeset with Feed for Node.js',
 
     feedLinks: {
-      rss: new URL(lang ? `/${lang}/rss.xml` : '/rss.xml', url).toString(),
-      atom: new URL(lang ? `/${lang}/atom.xml` : '/atom.xml', url).toString(),
+      rss: new URL(lang ? `${lang}/rss.xml` : 'rss.xml', url).toString(),
+      atom: new URL(lang ? `${lang}/atom.xml` : 'atom.xml', url).toString(),
     },
 
     author: {

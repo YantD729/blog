@@ -25,10 +25,10 @@ function getPostPath(post: Post) {
   const slug = post.data.abbrlink || post.id
 
   if (lang === defaultLocale) {
-    return `/posts/${slug}/`
+    return `posts/${slug}/`
   }
 
-  return `/${lang}/posts/${slug}/`
+  return `${lang}/posts/${slug}/`
 }
 ---
 

@@ -10,8 +10,8 @@ import { getLangFromPath, getNextGlobalLang } from '@/i18n/lang'
  */
 export function getTagPath(tagName: string, lang: string): string {
   return lang === defaultLocale
-    ? `/tags/${tagName}/`
-    : `/${lang}/tags/${tagName}/`
+    ? `tags/${tagName}/`
+    : `${lang}/tags/${tagName}/`
 }
 
 /**
@@ -26,10 +26,10 @@ export function getTagsListLangPath(currentPath: string): string {
 
   // Build path to tags list page
   if (nextLang === defaultLocale) {
-    return '/tags/'
+    return 'tags/'
   }
 
-  return `/${nextLang}/tags/`
+  return `${nextLang}/tags/`
 }
 
 /**
@@ -44,10 +44,10 @@ export function getLocalizedPath(path: string, currentLang?: string) {
   const lang = currentLang ?? getLangFromPath(path)
 
   if (normalizedPath === '') {
-    return lang === defaultLocale ? '/' : `/${lang}/`
+    return lang === defaultLocale ? '' : `${lang}/`
   }
 
-  return lang === defaultLocale ? `/${normalizedPath}/` : `/${lang}/${normalizedPath}/`
+  return lang === defaultLocale ? `${normalizedPath}/` : `${lang}/${normalizedPath}/`
 }
 
 /**
@@ -60,16 +60,16 @@ export function getLocalizedPath(path: string, currentLang?: string) {
  */
 export function getNextLangPath(currentPath: string, currentLang: string, nextLang: string): string {
   if (currentPath === '/') {
-    return nextLang === defaultLocale ? '/' : `/${nextLang}/`
+    return nextLang === defaultLocale ? '' : `${nextLang}/`
   }
 
   let nextPath: string
 
   if (nextLang === defaultLocale) {
-    nextPath = currentPath.replace(`/${currentLang}`, '') || '/'
+    nextPath = currentPath.replace(`/${currentLang}`, '') || ''
   }
   else if (currentLang === defaultLocale) {
-    nextPath = `/${nextLang}${currentPath}`
+    nextPath = `${nextLang}${currentPath}`
   }
   else {
     nextPath = currentPath.replace(`/${currentLang}`, `/${nextLang}`)
