@@ -31,6 +31,9 @@ export default defineConfig({
   site: siteUrl,
   base: "/blog/",
   trailingSlash: 'always',
+  build: {
+    format: "directory", // 生成目录形式的路由
+  },
   prefetch: {
     prefetchAll: true,
     defaultStrategy: 'viewport', // hover, tap, viewport, load
