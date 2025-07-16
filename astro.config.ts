@@ -29,7 +29,7 @@ const imageConfig = imageHostURL
 
 export default defineConfig({
   site: siteUrl,
-  base: '/',
+  base: "/blog/",
   trailingSlash: 'always',
   prefetch: {
     prefetchAll: true,
